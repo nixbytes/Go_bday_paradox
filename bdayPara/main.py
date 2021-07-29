@@ -37,7 +37,8 @@ def getMatch(birthdays):
 
 
 # Display the intro:
-print("""Birthday Paradox, by Al Sweigart al@inventwithpython.com
+print(
+    """Birthday Paradox, by Al Sweigart al@inventwithpython.com
 
 The Birthday Paradox shows us that in a group of N people, the odds
 that two of them have matching birthdays is surprisingly large.
@@ -46,4 +47,37 @@ simulations) to explore this concept.
 
 (It's not actually a paradox, it's just a surprising result.)
  47. 
-""")
+"""
+)
+
+# Tuples of the months:
+MONTHS = (
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+)
+
+
+while True:
+    print("How many people do you want to simulate?(Max 100)")
+    response = input(">")
+    if response.isdecimal() and (0 < int(response) <= 100):
+        numBdays = int(response)
+        break
+
+print()
+
+print("Here are", numBdays, "birthdays:")
+birthdays = getBirthdays(numBdays)
+for i, birthday in enumerate(birthdays):
+    if i != 0:
+        print("", end="")
