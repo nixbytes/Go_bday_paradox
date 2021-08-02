@@ -81,3 +81,18 @@ birthdays = getBirthdays(numBdays)
 for i, birthday in enumerate(birthdays):
     if i != 0:
         print("", end="")
+print()
+print()
+
+# Determine two birthdays
+match = getMatch(birthdays)
+
+# Display the results
+print("In this simulation", end="")
+if match != None:
+    monthName = MONTHS[match.month - 1]
+    datetext = "{} {}".format(monthName, match.day)
+    print("multiple people have a birthday on", dateText)
+else:
+    print("there are no matching birthdays.")
+print()
