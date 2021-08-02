@@ -13,7 +13,7 @@ def getBirthdays(numberOfBirthdays):
     """Return a list of random date objects for birthdays"""
     birthdays = []
 
-    for i in range(numberOfBirthdays):
+    for _ in range(numberOfBirthdays):
         startOfYear = datetime.date(2001, 1, 1)
 
         # Get a random day into the year
