@@ -25,14 +25,14 @@ def getBirthdays(numberOfBirthdays):
 
 
 def getMatch(birthdays):
-    """Returns the date objects of a birthday that occurs more 
+    """Returns the date objects of a birthday that occurs more
     than onces in the birthdays list"""
     if len(birthdays) == len(set(birthdays)):
         return None
 
     # compare birthays to the others
     for a, birthdayA in enumerate(birthdays):
-        for b, birthdayB in enumerate(birthdays[a + 1:]):
+        for b, birthdayB in enumerate(birthdays[a + 1 :]):
             if birthdayA == birthdayB:
                 return birthdayA
 
@@ -70,7 +70,7 @@ MONTHS = (
 
 while True:
     print("How many people do you want to simulate?(Max 100)")
-    response = input(">")
+    response = input("> ")
     if response.isdecimal() and (0 < int(response) <= 100):
         numBdays = int(response)
         break
@@ -115,8 +115,11 @@ for i in range(100_000):
 print("100,000 simulations run.")
 # Display simulation results:
 probability = round(simMatch / 100_000 * 100, 2)
-print("Out of 100,000 simulations of", numBdays, "people, there was a")
-print("matching birthday in that group", simMatch, "times. This means")
-print("that", numBdays, "people have a", probability, "% chance of")
-print("having a matching birthday in their group.")
-print("That's probably more than you would think!")
+print(
+    f"""Out of 100,000 simulations of {numBdays} people, there was a")
+matching birthday in that group {simMatch} times. This means")
+that  {numBdays} "people have a {probability}% chance of")
+having a matching birthday in their group.")
+That's probably more than you would think!
+"""
+)
