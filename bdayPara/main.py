@@ -25,13 +25,14 @@ def getBirthdays(numberOfBirthdays):
 
 
 def getMatch(birthdays):
-    """Returns the date objects of a birthday that occurs more than onces in the birthdays list"""
+    """Returns the date objects of a birthday that occurs more 
+    than onces in the birthdays list"""
     if len(birthdays) == len(set(birthdays)):
         return None
 
     # compare birthays to the others
     for a, birthdayA in enumerate(birthdays):
-        for b, birthdayB in enumerate(birthdays[a + 1]):
+        for b, birthdayB in enumerate(birthdays[a + 1:]):
             if birthdayA == birthdayB:
                 return birthdayA
 
