@@ -110,7 +110,7 @@ for i in range(100_000):
         print(i, "simulations run...")
     birthdays = getBirthdays(numBdays)
     if getMatch(birthdays) != None:
-        simMatch = simMatch + 1
+        simMatch += 1
 
 print("100,000 simulations run.")
 # Display simulation results:
