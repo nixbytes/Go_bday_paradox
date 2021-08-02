@@ -12,7 +12,7 @@ import datetime, random
 def getBirthdays(numberOfBirthdays):
     """Return a list of random date objects for birthdays"""
     birthdays = []
-
+    # Replace unused for index with underscore
     for _ in range(numberOfBirthdays):
         startOfYear = datetime.date(2001, 1, 1)
 
