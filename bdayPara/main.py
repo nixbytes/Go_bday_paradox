@@ -8,39 +8,29 @@ Tags: short, math, simulation
 
 import datetime, random
 
-
 def getBirthdays(numberOfBirthdays):
-    """Return a list of random date objects for birthdays"""
+    """Return a list of random date objects for birthdays."""
     birthdays = []
-    # Replace unused for index with underscore
     for _ in range(numberOfBirthdays):
         startOfYear = datetime.date(2001, 1, 1)
-
-        # Get a random day into the year
         randomNumberOfDays = datetime.timedelta(random.randint(0, 364))
         birthday = startOfYear + randomNumberOfDays
         birthdays.append(birthday)
-
     return birthdays
-
 
 def getMatch(birthdays):
     """Returns the date objects of a birthday that occurs more
-    than onces in the birthdays list"""
+    than once in the birthdays list."""
     if len(birthdays) == len(set(birthdays)):
         return None
-
-    # compare birthays to the others
     for a, birthdayA in enumerate(birthdays):
         for b, birthdayB in enumerate(birthdays[a + 1 :]):
             if birthdayA == birthdayB:
                 return birthdayA
 
-
 # Display the intro:
 print(
-    """Birthday Paradox, by Al Sweigart al@inventwithpython.com
-
+    """Birthday Paradox, by Al Sweigart al@inventwithpython.com\n
 The Birthday Paradox shows us that in a group of N people, the odds
 that two of them have matching birthdays is surprisingly large.
 This program does a Monte Carlo simulation (that is, repeated random
@@ -67,9 +57,9 @@ MONTHS = (
     "Dec",
 )
 
-
+# Get the number of people to simulate:
 while True:
-    print("How many people do you want to simulate?(Max 100)")
+    print("How many people do you want to simulate? (Max 100)")
     response = input("> ")
     if response.isdecimal() and (0 < int(response) <= 100):
         numBdays = int(response)
@@ -82,20 +72,21 @@ birthdays = getBirthdays(numBdays)
 for i, birthday in enumerate(birthdays):
     if i != 0:
         print("", end="")
+    print(" {}/{}".format(birthday.month, birthday.day), end="")
 print()
 print()
 
-# Determine two birthdays
+# Determine if there are matching birthdays:
 match = getMatch(birthdays)
 
-# Display the results
+# Display the results:
 print("In this simulation", end="")
 if match != None:
     monthName = MONTHS[match.month - 1]
     dateText = "{} {}".format(monthName, match.day)
-    print("multiple people have a birthday on", dateText)
+    print(" multiple people have a birthday on", dateText)
 else:
-    print("there are no matching birthdays.")
+    print(" there are no matching birthdays.")
 print()
 
 # Run through 100,000 simulations:
@@ -103,7 +94,7 @@ print("Generating", numBdays, "random birthdays 100,000 times...")
 input("Press Enter to begin...")
 
 print("Let's run another 100,000 simulations.")
-simMatch = 0  # How many simulations had matching birthdays in them.
+simMatch = 0  # How many simulations had matching birthdays.
 for i in range(100_000):
     # Report on the progress every 10,000 simulations:
     if i % 10_000 == 0:
@@ -116,10 +107,10 @@ print("100,000 simulations run.")
 # Display simulation results:
 probability = round(simMatch / 100_000 * 100, 2)
 print(
-    f"""Out of 100,000 simulations of {numBdays} people, there was a")
-matching birthday in that group {simMatch} times. This means")
-that  {numBdays} "people have a {probability}% chance of")
-having a matching birthday in their group.")
+    f"""Out of 100,000 simulations of {numBdays} people, there was a
+matching birthday in that group {simMatch} times. This means
+that {numBdays} people have a {probability}% chance of
+having a matching birthday in their group.
 That's probably more than you would think!
 """
 )
