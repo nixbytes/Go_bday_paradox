@@ -1,6 +1,6 @@
 # Birthday Paradox
 
-This small project from the book ["The big Book of Small Python Projects"](https://inventwithpython.com/bigbookpython/), which I add my implementation of the project.
+This small project from the book ["The big Book of Small Python Projects"](https://inventwithpython.com/bigbookpython/), which I add my implementation of the project in Golang
 
 ### Example output
 
